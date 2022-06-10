@@ -140,19 +140,6 @@ def monkey_sort(a):
         np.random.shuffle(a)
 
 
-# 睡眠排序
-# ps：试着优化了一下，但还是不要试太大、太小、太离散的数列
-def sleep_sort(a, b=np.array([])):
-    for i in range(a.size):
-        def sleep_add():
-            nonlocal b
-            tm.sleep(a[i] / 100)
-            b = np.append(b, a[i])
-
-        thread.Thread(target=sleep_add).start()
-    return b
-
-
 # 性能分析
 def performance_analysis(a):
     time = []
